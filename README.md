@@ -4,7 +4,7 @@ VoiceAuth is an automated security authentication system that streamlines campus
 
 When a delivery agent arrives, they speak the order details into the kiosk. The backend transcribes the audio in real-time, extracts key entities (such as student name, delivery app, or order ID) using natural language processing, and cross-references the data against active student records to instantly authenticate access and notify the recipient.
 
-##Team Details
+## Team Details
 
 | Name | Enrollment No |
 | :--- | :--- |
