@@ -1,8 +1,8 @@
-# Auto-normalize line endings across Windows/Mac/Linux teammates
+# Auto-normalize line endings across Windows/Mac/Linux
 * text=auto eol=lf
 
 # ------------------------------------------------------------------
-# 1. LOCKFILES & PACKAGE MANAGERS (Biggest contribution inflators)
+# 1. LOCKFILES & PACKAGE MANAGERS
 # ------------------------------------------------------------------
 package-lock.json linguist-generated=true
 yarn.lock linguist-generated=true
@@ -14,7 +14,7 @@ npm-shrinkwrap.json linguist-generated=true
 # ------------------------------------------------------------------
 # 2. REACT / VITE / CRA STARTER BOILERPLATE & ASSETS
 # ------------------------------------------------------------------
-# Ignores default scaffolding files if teammates push starter templates
+# Ignores default scaffolding files
 **/reportWebVitals.js linguist-generated=true
 **/reportWebVitals.ts linguist-generated=true
 **/setupTests.js linguist-generated=true
@@ -30,9 +30,8 @@ public/** linguist-generated=true
 # ------------------------------------------------------------------
 # 3. UI COMPONENT BOILERPLATE (e.g., Shadcn UI / Radix copies)
 # ------------------------------------------------------------------
-# If your team uses CLI-generated UI components (like shadcn/ui), 
-# uncomment the line below so copying 50 UI components doesn't count as custom code:
-# src/components/ui/** linguist-generated=true
+
+src/components/ui/** linguist-generated=true
 
 # ------------------------------------------------------------------
 # 4. MINIFIED, BUNDLED, OR GENERATED CODE (GraphQL, Prisma, OpenAPI, SourceMaps)
