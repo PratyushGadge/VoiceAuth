@@ -15,13 +15,14 @@ export default function App() {
   }
 
   function handleSubmit(event) {
-    event.preventDefault();
-    setMessage(
-      isRegister
-        ? 'Not connected to the backend registration yet. work in progress.'
-        : 'not connected to the backend authentication yet. work in progress'
-    );
+  event.preventDefault();
+
+  if (isRegister) {
+    setMessage(`Registration button clicked for ${form.email}!`);
+  } else {
+    setMessage(`Login button clicked for ${form.email}!`);
   }
+}
 
   function switchMode(nextMode) {
     setMode(nextMode);
