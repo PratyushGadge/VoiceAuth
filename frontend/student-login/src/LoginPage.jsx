@@ -1,21 +1,20 @@
 import { useState } from 'react';
 
-const API_URL = 'http://localhost:5001';
+const PORTAL_URL = 'http://localhost:5174';
 
-export default function LoginPage({ onLogin }) {
+export default function LoginPage() {
   const [mode, setMode] = useState('login');
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
 
   async function handleSubmit(event) {
     event.preventDefault();
 
-    const response = await fetch(`${API_URL}/${mode}`, {
+    const response = await fetch(`/${mode}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, email, password }),
+      body: JSON.stringify({ username, password }),
     });
     const data = await response.json();
 
@@ -25,7 +24,7 @@ export default function LoginPage({ onLogin }) {
       setMessage(data.message);
       setMode('login');
     } else {
-      onLogin(data);
+      window.location.href = `${PORTAL_URL}/?username=${data.username}`;
     }
   }
 
@@ -45,15 +44,9 @@ export default function LoginPage({ onLogin }) {
           </button>
         </div>
 
-        {mode === 'register' && (
-          <label>
-            Full name
-            <input value={name} onChange={e => setName(e.target.value)} required />
-          </label>
-        )}
         <label>
           Student email
-          <input type="email" value={email} onChange={e => setEmail(e.target.value)} required />
+          <input type="email" value={username} onChange={e => setUsername(e.target.value)} required />
         </label>
         <label>
           Password

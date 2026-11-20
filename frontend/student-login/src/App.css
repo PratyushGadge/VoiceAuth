@@ -1,0 +1,121 @@
+/* ---------- Whole page ---------- */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #242a26;
+  background: #f4f7f5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  margin: 0 0 20px;
+  font-size: 26px;
+}
+
+h2 {
+  margin: 0 0 14px;
+  font-size: 16px;
+}
+
+.muted {
+  color: #849087;
+}
+
+.brand {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.brand span {
+  color: #187849;
+}
+
+/* ---------- Buttons and form fields ---------- */
+.button {
+  padding: 11px 16px;
+  border: 0;
+  border-radius: 8px;
+  background: #187849;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: #12673d;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+input,
+select {
+  padding: 10px;
+  border: 1px solid #dfe7e1;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+/* ---------- Login page ---------- */
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-card {
+  width: 400px;
+  padding: 34px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: white;
+  border: 1px solid #e4ebe6;
+  border-radius: 20px;
+}
+
+.login-card h1,
+.login-card .brand,
+.login-card .muted {
+  margin: 0;
+}
+
+.mode-switch {
+  display: flex;
+  padding: 4px;
+  border-radius: 10px;
+  background: #f1f5f2;
+}
+
+.mode-switch button {
+  flex: 1;
+  padding: 9px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.mode-switch button.active {
+  background: white;
+  font-weight: bold;
+}
+
+.message {
+  margin: 0;
+  padding: 10px;
+  border-radius: 8px;
+  background: #edf8f0;
+  color: #24633f;
+}
