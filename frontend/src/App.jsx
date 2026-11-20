@@ -20,7 +20,7 @@ export default function App() {
   if (isRegister) {
     setMessage(`Registration button clicked for ${form.email}!`);
   } else {
-    setMessage(`Login button clicked for ${form.email}!`);
+     window.location.href = 'http://localhost:5174/';
   }
 }
 
