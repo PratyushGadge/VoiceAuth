@@ -24,7 +24,7 @@ export default function LoginPage() {
       setMessage(data.message);
       setMode('login');
     } else {
-      window.location.href = `${PORTAL_URL}/?username=${data.username}`;
+      window.location.href = PORTAL_URL;
     }
   }
 

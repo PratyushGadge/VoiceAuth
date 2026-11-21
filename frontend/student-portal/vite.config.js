@@ -8,6 +8,8 @@ export default defineConfig({
     strictPort: true,
     proxy: {
       '/deliveries': 'http://localhost:5002',
+      '/me': 'http://localhost:5002',
+      '/logout': 'http://localhost:5002',
     },
   },
 });

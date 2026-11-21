@@ -3,27 +3,42 @@ import { useEffect, useState } from 'react';
 const LOGIN_URL = 'http://localhost:5173';
 
 export default function Portal() {
-  const username = new URLSearchParams(window.location.search).get('username');
+  const [username, setUsername] = useState(null);
   const [page, setPage] = useState('overview');
   const [deliveries, setDeliveries] = useState([]);
   const [search, setSearch] = useState('');
   const [form, setForm] = useState({ platform: 'Amazon', order_id: '', item: '', expected_date: '' });
 
   async function loadDeliveries() {
-    const response = await fetch(`/deliveries?username=${username}`);
+    const response = await fetch(`/deliveries`);
+    if (!response.ok) return;
     setDeliveries(await response.json());
   }
 
-  useEffect(() => {
+  async function checkLogin() {
+    const response = await fetch('/me');
+    if (!response.ok) {
+      window.location.href = LOGIN_URL;
+      return;
+    }
+    const data = await response.json();
+    setUsername(data.username);
     loadDeliveries();
-  }, []);
+  }
+
+  async function logout() {
+    await fetch('/logout', { method: 'POST' });
+    window.location.href = LOGIN_URL;
+  }
+
+  useEffect(() => {checkLogin();}, []);
 
   async function registerDelivery(event) {
     event.preventDefault();
     await fetch('/deliveries', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ...form, username }),
+      body: JSON.stringify(form),
     });
     await loadDeliveries();
     setForm({ platform: 'Amazon', order_id: '', item: '', expected_date: '' });
@@ -40,10 +55,7 @@ export default function Portal() {
     (d.order_id + ' ' + d.platform).toLowerCase().includes(search.toLowerCase())
   );
 
-  if (!username) {
-    window.location.href = LOGIN_URL;
-    return null;
-  }
+  if (!username) {return null;}
 
   return (
     <div className="portal">
@@ -54,7 +66,7 @@ export default function Portal() {
         <button className={page === 'deliveries' ? 'selected' : ''} onClick={() => setPage('deliveries')}>My deliveries</button>
         <div className="sidebar-bottom">
           <strong>{username}</strong>
-          <button onClick={() => window.location.href = LOGIN_URL}>Log out</button>
+          <button onClick={logout}>Log out</button>
         </div>
       </aside>
 
@@ -114,6 +126,7 @@ export default function Portal() {
             </div>
           </>
         )}
+
       </main>
     </div>
   );

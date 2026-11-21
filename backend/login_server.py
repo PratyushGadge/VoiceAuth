@@ -1,8 +1,9 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, session
 from database_init import get_db_connection
 from auth_utils import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
+app.secret_key = "voiceauth-dev-secret"
 
 @app.route("/")
 def home():
@@ -18,7 +19,7 @@ def register():
     username = data["username"]
     password = data["password"]
     
-    hashed_password = check_password_hash(password)
+    hashed_password = generate_password_hash(password)
     
     conn = get_db_connection()
     cursor = conn.cursor()
@@ -61,6 +62,7 @@ def login():
     stored_password = user["password"]
     
     if check_password_hash(stored_password, password):
+        session["username"] = username
         return jsonify({"message": "Login successful!", "username": username}), 200
     else:
         return jsonify({"error": "Invalid username or password"}), 401
