@@ -1,0 +1,180 @@
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #242a26;
+  background: #f4f7f5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  margin: 0 0 20px;
+  font-size: 26px;
+}
+
+h2 {
+  margin: 0 0 14px;
+  font-size: 16px;
+}
+
+.muted {
+  color: #849087;
+}
+
+.brand {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.brand span {
+  color: #187849;
+}
+
+/* ---------- buttons and form fields ---------- */
+.button {
+  padding: 11px 16px;
+  border: 0;
+  border-radius: 8px;
+  background: #187849;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: #12673d;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+input,
+select {
+  padding: 10px;
+  border: 1px solid #dfe7e1;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+/* ----------student portal ---------- */
+.portal {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 230px;
+  padding: 25px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: white;
+  border-right: 1px solid #e8ebe7;
+}
+
+.sidebar button {
+  padding: 12px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.sidebar button.selected {
+  background: #edf4ef;
+  color: #286b49;
+  font-weight: bold;
+}
+
+.sidebar-bottom {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1;
+  padding: 36px;
+}
+
+.card {
+  padding: 20px;
+  margin-bottom: 16px;
+  background: white;
+  border: 1px solid #e8ece8;
+  border-radius: 10px;
+}
+
+.stats {
+  display: flex;
+  gap: 14px;
+}
+
+.stats .card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stats strong {
+  font-size: 26px;
+}
+
+.form {
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.search {
+  width: 100%;
+  margin-bottom: 14px;
+}
+
+/* ---------- deliveries table ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #f0f2f0;
+}
+
+th {
+  font-size: 12px;
+  color: #929c94;
+  background: #fafbfa;
+}
+
+.status {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.Expected {
+  background: #f8f3e8;
+  color: #9a7636;
+}
+
+.Received {
+  background: #edf5ef;
+  color: #4b805d;
+}
