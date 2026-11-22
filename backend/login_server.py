@@ -36,7 +36,7 @@ def register():
         conn.close()
         
     return jsonify({"message": f"User '{username}' registered successfully!"}), 201
-
+ 
 @app.route("/login", methods=["POST"])
 def login():
     data = request.get_json()
